@@ -66,6 +66,28 @@ public class ScoreFragment extends Fragment {
 		return binding.getRoot();
 	}
 
+	public String getHomeScorer() {
+		StringBuilder result = new StringBuilder();
+		for (GoalScorer gol : homeGoalScorerList) {
+			result.append(gol.getName())
+					.append(" ")
+					.append(gol.getMinute())
+					.append("\" ");
+		}
+		return result.toString();
+	}
+
+	public String getAwayScorer() {
+		StringBuilder result = new StringBuilder();
+		for (GoalScorer gol: awayGoalScorerList) {
+			result.append(gol.getName())
+					.append(" ")
+					.append(gol.getMinute())
+					.append("\" ");
+		}
+		return result.toString();
+	}
+
 	public void onAddHomeClick(View view) {
 		ScoreFragmentDirections.GoalScorerAction action = ScoreFragmentDirections.goalScorerAction(HOME_REQUEST_KEY);
 		Navigation.findNavController(view).navigate(action);
